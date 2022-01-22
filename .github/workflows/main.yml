@@ -34,7 +34,7 @@ jobs:
           dotnet-version: '5.0.100'
           source-url: https://nuget.pkg.github.com/ricado-group/index.json
         env:
-          NUGET_AUTH_TOKEN: ${{ secrets.GH_ACTIONS_PAT }}
+          NUGET_AUTH_TOKEN: ${{ secrets.GH_PACKAGES_PAT }}
       
       # Step 4 - Restore NuGet Packages
       - name: Restore NuGet Packages
@@ -52,7 +52,7 @@ jobs:
       # Step 7 - Push the Package to GitHub Packages
       - name: Push the Package to GitHub Packages
         if: ${{ startsWith(github.ref, 'refs/tags/') }}
-        run: dotnet nuget push "${{ env.PROJECT_NAME }}/bin/Release/*.nupkg" -k ${{ secrets.GH_ACTIONS_PAT }} -s "https://nuget.pkg.github.com/ricado-group/index.json" --skip-duplicate
+        run: dotnet nuget push "${{ env.PROJECT_NAME }}/bin/Release/*.nupkg" -k ${{ secrets.GH_PACKAGES_PAT }} -s "https://nuget.pkg.github.com/ricado-group/index.json" --skip-duplicate
       
       # Step 8 - Push the Package to NuGet
       - name: Push the Package to Nuget
