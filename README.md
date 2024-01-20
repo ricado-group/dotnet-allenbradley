@@ -1,2 +1,2 @@
-# dotnet-allenbradley
-An Allen-Bradley PLC Communication Library for .NET 5 Applications
+# RICADO.AllenBradley
+An Allen-Bradley PLC Communication Library for .NET 6+ Applications
